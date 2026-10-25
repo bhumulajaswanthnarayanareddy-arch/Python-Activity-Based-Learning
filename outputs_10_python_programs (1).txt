@@ -1,0 +1,189 @@
+OUTPUTS OF 10 PYTHON CASE STUDY PROGRAMS
+========================================
+
+Note: These are sample console outputs based on the sample data used for the programs. Currency values and policy rules are illustrative.
+
+PROGRAM 1: UNIVERSITY SCHOLARSHIP ALLOCATION
+--------------------------------------------
+Sample output:
+
+Eligible applicants (ranked):
+1. Priya - Aggregate: 88%, Attendance: 92%, Family Income: Rs. 180000
+2. Ravi - Aggregate: 82%, Attendance: 85%, Family Income: Rs. 200000
+
+Ineligible applicants:
+Arun - Does not meet the eligibility criteria.
+
+
+PROGRAM 2: HOSPITAL BILLING AND PATIENT CLASSIFICATION
+------------------------------------------------------
+Sample input:
+Patient name: Ravi
+Age: 65
+Valid concession card (yes/no): no
+Consultation charges: Rs. 1000
+Medical test charges: Rs. 2500
+Treatment charges: Rs. 8000
+
+Sample output:
+
+Patient Name: Ravi
+Total Bill: Rs. 11500.00
+Concession: 10%
+Concession Amount: Rs. 1150.00
+Final Bill: Rs. 10350.00
+Bill Classification: High Bill
+
+
+PROGRAM 9: MULTI-CURRENCY TRAVEL BUDGET ANALYSIS
+------------------------------------------------
+Sample input:
+Travel budget (INR): 20000
+Hotel expense: 100 USD
+Food expense: 50 EUR
+Transport expense: 3000 INR
+
+Sample output:
+
+Hotel: Rs. 8466.00
+Food: Rs. 4650.00
+Transport: Rs. 3000.00
+Total travel expense (including conversion fee): Rs. 16116.00
+Budget status: Within budget
+Remaining budget: Rs. 3884.00
+Largest expense: Hotel (Rs. 8466.00)
+
+
+PROGRAM 10: CAMPUS EVENT FINANCIAL PLANNING
+-------------------------------------------
+Sample input:
+Venue cost: Rs. 10000
+Equipment cost: Rs. 5000
+Catering cost: Rs. 20000
+Transport cost: Rs. 5000
+Certificates and other costs: Rs. 2000
+Expected participants: 100
+Sponsorship received: Rs. 15000
+Target sponsorship: Rs. 20000
+Registration fee per participant: Rs. 300
+
+Sample output:
+
+Total event cost: Rs. 42000.00
+Remaining cost after sponsorship: Rs. 27000.00
+Contribution required per participant: Rs. 270.00
+Sponsorship shortfall: Rs. 5000.00
+Break-even registrations required: 90
+Expected registrations cover the remaining cost.
+
+
+PROGRAM 11: EXAMINATION RESULT AND GRACE-MARK VALIDATION
+---------------------------------------------------------
+Sample input:
+Python: 38/100
+Maths: 80/100
+English: 70/100
+Pass mark: 40
+Maximum grace marks: 5
+
+Sample output:
+
+Python: Original Marks = 38, Grace Marks = 2, Final Marks = 40
+Maths: Original Marks = 80, Grace Marks = 0, Final Marks = 80
+English: Original Marks = 70, Grace Marks = 0, Final Marks = 70
+
+Total Marks: 190/300
+Percentage: 63.33%
+Result: PASS
+Classification: FIRST CLASS
+
+
+PROGRAM 12: ATTENDANCE RECOVERY COMPUTATION
+-------------------------------------------
+Sample input:
+Classes attended: 60
+Classes conducted: 100
+Required attendance: 75%
+
+Sample output:
+
+Current attendance: 60.00%
+Required attendance: 75.00%
+Additional classes to attend if attending every future class: 60
+Additional classes to attend if attending 90% of future classes: 150
+
+
+PROGRAM 13: ATM TRANSACTION SEQUENCE SIMULATION
+-----------------------------------------------
+Sample input:
+Opening balance: Rs. 5000
+Transactions: Deposit Rs. 2000, Withdraw Rs. 3000, Withdraw Rs. 5000
+
+Sample output:
+
+Opening balance: Rs. 5000.00
+Deposit successful: Rs. 2000.00
+Withdrawal successful: Rs. 3000.00
+Withdrawal rejected: Insufficient balance
+Final balance: Rs. 4000.00
+Total deposits: Rs. 2000.00
+Total successful withdrawals: Rs. 3000.00
+Successful transactions: 2
+Rejected transactions: 1
+
+
+PROGRAM 14: WAREHOUSE INVENTORY RECONCILIATION
+----------------------------------------------
+Sample output:
+
+Item: Rice
+Opening stock: 100
+Incoming stock: 50
+Dispatched stock: 30
+Expected closing stock: 120
+Recorded closing stock: 120
+Discrepancy: 0
+Stock status: Match
+Replenishment required: 30
+
+Item: Sugar
+Opening stock: 40
+Incoming stock: 20
+Dispatched stock: 10
+Expected closing stock: 50
+Recorded closing stock: 50
+Discrepancy: 0
+Stock status: Match
+Replenishment required: 0
+
+
+PROGRAM 15: SMART PARKING FEE MANAGEMENT
+----------------------------------------
+Sample input:
+Vehicle type: Car
+Entry time: 22:00
+Exit time: 02:30
+
+Sample output:
+
+Vehicle type: Car
+Parking duration: 5 hours
+Parking fee: Rs. 250.00
+Overnight / over-24-hour penalty: Rs. 0.00
+Total parking fee: Rs. 250.00
+
+
+PROGRAM 16: MULTI-DAY WATER TANK SIMULATION
+-------------------------------------------
+Sample output:
+
+Tank capacity: 1000 litres
+Final water level: 900 litres
+Total overflow: 50 litres
+Total shortage: 0 litres
+Target water level reached: Yes
+First interval reaching target: 2
+
+
+END OF OUTPUTS
+==============
