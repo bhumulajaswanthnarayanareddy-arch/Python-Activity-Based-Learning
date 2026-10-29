@@ -1,0 +1,641 @@
+Python Programming Laboratory Report
+Comprehensive Analysis, Algorithms, Pseudocode and Implementation of 10 Case Studies
+
+Student Details
+- Name: Bhumula Jaswanth Narayana Reddy
+- Roll Number: 26000863
+- Branch: CSE (AIML)
+- Section: CSM-1
+- Academic Year: 2026
+The following matter is based on your uploaded PDF. It includes the problem statement, objectives, assumptions, algorithm, flowchart, pseudocode, Python source code, test cases, sample output and conclusion for each case study. 10 Python Case Studies Comprehensive Lab Report.pdf
+
+Table of Contents
+1. University Scholarship Allocation
+2. Electricity Tariff and Slab Billing System
+3. Smart Traffic Fine System
+4. Real-Time Weather Data Aggregator
+5. E-Commerce Inventory and Billing Engine
+6. Student Grade Analysis and Visualization
+7. Automated File Organizer and Metadata Cleaner
+8. Interactive Quiz and Assessment System
+9. Task Management and Productivity Tracker
+10. Log File Parser and Anomaly Security Detector
+The uploaded PDF contains two overlapping sets of case studies, so the report below follows the ten-case-study set shown in its main detailed section.
+Case Study 1: Real-Time Weather Data Aggregator
+1. Problem Statement
+Develop a Python program to process hourly temperature readings from multiple cities and calculate average, maximum and minimum temperatures. The system should also help identify unusually high temperatures.
+2. Objectives
+- Store temperature readings for different cities.
+- Calculate average, maximum and minimum temperatures.
+- Display the summarized weather report.
+- Identify temperatures above 40°C.
+3. Assumptions
+- Temperature readings are numeric.
+- Each city has a list of readings.
+- Empty reading lists are skipped.
+- Temperature values are supplied in degrees Celsius.
+4. Algorithm
+1. Start the program.
+2. Initialize the weather data.
+3. Read each city's temperature readings.
+4. Calculate the average, maximum and minimum.
+5. Store the results in a dictionary.
+6. Display the weather summary.
+7. Stop.
+5. Flowchart
+Start → Read Weather Data → Calculate Statistics → Display Report → Stop.
+6. Pseudocode
+START
+  FOR each city and temperature list
+    IF the list is not empty
+      Calculate average temperature
+      Find maximum temperature
+      Find minimum temperature
+      Display the results
+    END IF
+  END FOR
+STOP
+
+
+7. Python Source Code
+def process_weather(data):    summary = {}    for city, temps in data.items():        if not temps:            continue        avg_temp = sum(temps) / len(temps)        summary[city] = {            "avg": round(avg_temp, 2),            "max": max(temps),            "min": min(temps)        }    return summaryraw_data = {    "New York": [18.5, 20.1, 19.0],    "London": [12.0, 14.5, 16.0],    "Tokyo": [22.0, 25.4, 21.1]}report = process_weather(raw_data)print("Aggregated Weather:", report)
+
+
+
+8. Test Cases
+City	Temperature readings	Expected average
+New York	18.5, 20.1, 19.0	19.20°C
+London	12.0, 14.5, 16.0	14.17°C
+Tokyo	22.0, 25.4, 21.1	22.83°C
+
+9. Sample Output
+Aggregated Weather: {
+    'New York': {'avg': 19.2, 'max': 20.1, 'min': 18.5},
+    'London': {'avg': 14.17, 'max': 16.0, 'min': 12.0},
+    'Tokyo': {'avg': 22.83, 'max': 25.4, 'min': 21.1}
+}
+
+
+10. Conclusion
+The program successfully organizes weather readings using dictionaries and calculates useful statistical information using Python's built-in functions.
+
+Case Study 2: E-Commerce Inventory and Billing Engine
+1. Problem Statement
+Develop a Python program to manage product inventory, calculate item prices, apply discounts and taxes, and generate the final bill for an online shopping order.
+2. Objectives
+- Maintain product prices and stock quantities.
+- Calculate the subtotal of purchased products.
+- Apply a 10% discount when the subtotal exceeds $1,000.
+- Apply 8% sales tax.
+- Update inventory after a purchase.
+3. Assumptions
+- Product prices are fixed.
+- Requested quantities are available in stock.
+- A 10% discount applies when the subtotal is greater than $1,000.
+- Sales tax is 8%.
+4. Algorithm
+1. Start the program.
+2. Initialize product prices and stock.
+3. Read the shopping cart.
+4. Calculate the subtotal.
+5. Apply the discount if eligible.
+6. Calculate sales tax.
+7. Calculate the final payable amount.
+8. Update the stock and display the bill.
+9. Stop.
+5. Flowchart
+Start → Check Cart → Calculate Subtotal → Apply Discount → Calculate Tax → Display Bill → Stop.
+6. Pseudocode
+START
+  Initialize inventory
+  Calculate subtotal
+  IF subtotal > 1000
+    discount = subtotal * 0.10
+  ELSE
+    discount = 0
+  END IF
+  tax = (subtotal - discount) * 0.08
+  total = subtotal - discount + tax
+  Display total
+STOP
+
+
+7. Python Source Code
+inventory = {    "Laptop": {"price": 1200, "stock": 5},    "Mouse": {"price": 25, "stock": 20}}def generate_bill(cart):    subtotal = 0    for item, qty in cart.items():        if item in inventory and inventory[item]["stock"] >= qty:            subtotal += inventory[item]["price"] * qty            inventory[item]["stock"] -= qty    discount = subtotal * 0.10 if subtotal > 1000 else 0    tax = (subtotal - discount) * 0.08    return subtotal - discount + taxpayable = generate_bill({"Laptop": 1, "Mouse": 2})print(f"Grand Total Payable: ${payable:.2f}")print("Updated Stock:", inventory)
+
+
+
+8. Test Cases
+Shopping cart	Expected bill
+1 Laptop	$1,166.40
+1 Laptop and 2 Mice	$1,225.80
+
+9. Sample Output
+Grand Total Payable: $1225.80
+Updated Stock: {
+    'Laptop': {'price': 1200, 'stock': 4},
+    'Mouse': {'price': 25, 'stock': 18}
+}
+
+
+10. Conclusion
+The program demonstrates inventory management, arithmetic operations, conditional discount calculation and sales tax processing.
+
+Case Study 3: Student Grade Analysis and Visualization
+1. Problem Statement
+Develop a Python program to analyze students' marks, assign letter grades, calculate the class average and identify high-performing students.
+2. Objectives
+- Store student names and marks.
+- Assign grades according to percentage ranges.
+- Calculate the class average.
+- Identify students who need academic improvement.
+3. Assumptions
+- Marks range from 0 to 100.
+- Student names are unique.
+- Grade A is assigned for 90 or above, B for 80–89, C for 70–79 and F below 70.
+4. Algorithm
+1. Start.
+2. Store student marks in a dictionary.
+3. Read each student's marks.
+4. Assign a grade based on the marks.
+5. Calculate the class average.
+6. Display the results.
+7. Stop.
+5. Flowchart
+Start → Read Marks → Assign Grades → Calculate Average → Display Results → Stop.
+6. Pseudocode
+START
+  FOR each student
+    IF marks >= 90
+      grade = A
+    ELSE IF marks >= 80
+      grade = B
+    ELSE IF marks >= 70
+      grade = C
+    ELSE
+      grade = F
+    END IF
+  END FOR
+  Calculate class average
+  Display results
+STOP
+
+
+7. Python Source Code
+students = {    "Jaswanth": 95,    "Rahul": 82,    "Priya": 68,    "Ananya": 91}def analyze_grades(records):    results = {}    for name, mark in records.items():        if mark >= 90:            grade = "A"        elif mark >= 80:            grade = "B"        elif mark >= 70:            grade = "C"        else:            grade = "F"        results[name] = (mark, grade)    class_avg = sum(records.values()) / len(records)    return results, class_avggraded_data, avg = analyze_grades(students)print("Class Results:", graded_data)print(f"Class Average: {avg:.2f}")
+
+
+
+8. Test Cases
+Student	Marks	Expected grade
+Jaswanth	95	A
+Rahul	82	B
+Priya	68	F
+Ananya	91	A
+
+9. Sample Output
+Class Results: {
+    'Jaswanth': (95, 'A'),
+    'Rahul': (82, 'B'),
+    'Priya': (68, 'F'),
+    'Ananya': (91, 'A')
+}
+Class Average: 84.00
+
+
+10. Conclusion
+The program uses dictionaries, loops, conditional statements and arithmetic operations to analyze student performance.
+
+Case Study 4: Automated File Organizer and Metadata Cleaner
+1. Problem Statement
+Develop a Python program to organize files into categories according to their file extensions.
+2. Objectives
+- Identify file extensions.
+- Categorize files into folders such as Images, Docs and Code.
+- Organize files into appropriate groups.
+- Handle different file types.
+3. Assumptions
+- File names contain valid extensions.
+- File extensions determine the category.
+- Unknown extensions are classified as Others.
+4. Algorithm
+1. Start.
+2. Initialize the file list.
+3. Read each file name.
+4. Extract its extension.
+5. Identify its category using a dictionary.
+6. Group files according to category.
+7. Display the organized structure.
+8. Stop.
+5. Flowchart
+Start → Read Files → Identify Extensions → Categorize Files → Display Structure → Stop.
+6. Pseudocode
+START
+  FOR each file
+    Extract file extension
+    Find corresponding category
+    Add file to category
+  END FOR
+  Display organized files
+STOP
+
+
+7. Python Source Code
+import osdef organize_files(files_list):    rules = {        ".jpg": "Images",        ".pdf": "Docs",        ".py": "Code"    }    moved_summary = {}    for file in files_list:        ext = os.path.splitext(file)[1]        category = rules.get(ext, "Others")        moved_summary.setdefault(category, []).append(file)    return moved_summarysample_dir = [    "data.pdf",    "script.py",    "photo.jpg",    "notes.txt"]print("Organized Structure:", organize_files(sample_dir))
+
+
+
+8. Test Cases
+Input file	Expected category
+data.pdf	Docs
+script.py	Code
+photo.jpg	Images
+notes.txt	Others
+
+9. Sample Output
+Organized Structure: {
+    'Docs': ['data.pdf'],
+    'Code': ['script.py'],
+    'Images': ['photo.jpg'],
+    'Others': ['notes.txt']
+}
+
+
+10. Conclusion
+The program demonstrates file-extension identification, dictionary mapping and list operations to organize files into categories. This example groups file names; it does not physically move files.
+
+Case Study 5: Interactive Quiz and Assessment System
+1. Problem Statement
+Develop a command-line quiz application that evaluates answers, calculates scores and displays the final result.
+2. Objectives
+- Display quiz questions.
+- Accept answers from the user.
+- Compare answers with correct answers.
+- Calculate the total score.
+- Display the result.
+3. Assumptions
+- Questions have predefined correct answers.
+- User answers are strings.
+- Answers are compared without considering uppercase or lowercase.
+- Each correct answer earns one point.
+4. Algorithm
+1. Start.
+2. Initialize the question bank.
+3. Accept answers from the user.
+4. Compare each answer with the correct answer.
+5. Increase the score for correct answers.
+6. Calculate the final score.
+7. Display the result.
+8. Stop.
+5. Flowchart
+Start → Display Questions → Accept Answers → Check Correctness → Calculate Score → Display Result → Stop.
+6. Pseudocode
+START
+  score = 0
+  FOR each question
+    Display question
+    Read answer
+    IF answer is correct
+      score = score + 1
+    END IF
+  END FOR
+  Display score
+STOP
+
+
+7. Python Source Code
+quiz_bank = [    {"q": "Keyword for function in Python?", "ans": "def"},    {"q": "Is tuple mutable? (yes/no)", "ans": "no"}]def run_quiz(questions, user_answers):    score = 0    for i, question in enumerate(questions):        if user_answers[i].strip().lower() == question["ans"]:            score += 1    return scoreuser_inputs = ["def", "no"]final_score = run_quiz(quiz_bank, user_inputs)print(f"Quiz Completed! Score: {final_score}/{len(quiz_bank)}")
+
+
+
+8. Test Cases
+User answers	Expected score
+def, no	2/2
+def, yes	1/2
+wrong, yes	0/2
+
+9. Sample Output
+Quiz Completed! Score: 2/2
+
+
+10. Conclusion
+The quiz application demonstrates loops, lists, dictionaries, string operations and conditional statements for automated assessment.
+
+Case Study 6: Task Management and Productivity Tracker
+1. Problem Statement
+Develop a Python program to manage daily tasks, track completion status and organize tasks according to priority.
+2. Objectives
+- Add new tasks.
+- Assign priority levels.
+- Update task completion status.
+- Display the current task list.
+- Track pending and completed tasks.
+3. Assumptions
+- Each task receives a unique integer ID.
+- Priority levels are High, Medium and Low.
+- New tasks have Pending status.
+- Completed tasks are marked as Completed.
+4. Algorithm
+1. Start.
+2. Initialize an empty task list.
+3. Add tasks with IDs and priorities.
+4. Search for a task using its ID.
+5. Update its status when completed.
+6. Display all tasks.
+7. Stop.
+5. Flowchart
+Start → Add Task → Assign Priority → Update Status → Display Tasks → Stop.
+6. Pseudocode
+START
+  Initialize empty task list
+  Add task with ID, title and priority
+  FOR each task
+    IF task ID matches requested ID
+      Set status to Completed
+    END IF
+  END FOR
+  Display task list
+STOP
+
+
+7. Python Source Code
+tasks = []def add_task(title, priority="High"):    tasks.append({        "id": len(tasks) + 1,        "title": title,        "priority": priority,        "status": "Pending"    })def complete_task(task_id):    for task in tasks:        if task["id"] == task_id:            task["status"] = "Completed"add_task("Submit Python Report", "High")add_task("Prepare for Quiz", "Medium")complete_task(1)print("Current Tasks:", tasks)
+
+
+
+8. Test Cases
+Operation	Expected result
+Add task 1	Pending
+Add task 2	Pending
+Complete task 1	Completed
+View tasks	Both tasks displayed
+
+9. Sample Output
+Current Tasks: [
+    {
+        'id': 1,
+        'title': 'Submit Python Report',
+        'priority': 'High',
+        'status': 'Completed'
+    },
+    {
+        'id': 2,
+        'title': 'Prepare for Quiz',
+        'priority': 'Medium',
+        'status': 'Pending'
+    }
+]
+
+
+10. Conclusion
+The task management system demonstrates lists, dictionaries, functions, loops and updates to stored data.
+
+Case Study 7: Log File Parser and Anomaly Security Detector
+1. Problem Statement
+Develop a Python program to analyze server log entries, identify repeated failed login attempts and flag suspicious IP addresses.
+2. Objectives
+- Read log entries.
+- Extract IP addresses and HTTP status codes.
+- Count failed login attempts.
+- Identify IP addresses with repeated failures.
+- Display security alerts.
+3. Assumptions
+- Log entries contain an IP address and HTTP status code.
+- HTTP status code 401 indicates an unauthorized request.
+- An IP address with at least three failed attempts is flagged.
+- The program processes a predefined collection of log entries.
+4. Algorithm
+1. Start.
+2. Initialize the log data.
+3. Read each log entry.
+4. Extract the IP address and status code using regular expressions.
+5. Count failed login attempts.
+6. Identify IP addresses with at least three failures.
+7. Display suspicious IP addresses.
+8. Stop.
+5. Flowchart
+Start → Read Logs → Extract IP and Status → Count Failures → Check Threshold → Display Alert → Stop.
+6. Pseudocode
+START
+  Initialize failure counts
+  FOR each log entry
+    Extract IP address and status
+    IF status is 401
+      Increase failure count
+    END IF
+  END FOR
+
+  FOR each IP address
+    IF failure count >= 3
+      Display security alert
+    END IF
+  END FOR
+STOP
+
+
+7. Python Source Code
+import relog_data = [    '192.168.1.10 - - [25/Oct/2026] "POST /login" 401',    '192.168.1.10 - - [25/Oct/2026] "POST /login" 401',    '192.168.1.10 - - [25/Oct/2026] "POST /login" 401',    '192.168.1.10 - - [25/Oct/2026] "POST /login" 401',    '10.0.0.5 - - [25/Oct/2026] "GET /index" 200']def detect_anomalies(logs):    failures = {}    for line in logs:        match = re.search(            r'(\d+\.\d+\.\d+\.\d+).*?"\s+(\d{3})',            line        )        if match:            ip, status = match.group(1), match.group(2)            if status == "401":                failures[ip] = failures.get(ip, 0) + 1    return [        ip for ip, count in failures.items()        if count >= 3    ]print("Suspicious IPs:", detect_anomalies(log_data))
+
+
+
+8. Test Cases
+Input	Expected result
+Four 401 responses from one IP	IP is flagged
+One 401 response	IP is not flagged
+One 200 response	No failed-login alert
+
+9. Sample Output
+Suspicious IPs: ['192.168.1.10']
+
+
+10. Conclusion
+The program demonstrates regular expressions, dictionaries, loops and conditional statements to identify repeated unauthorized requests in sample server logs.
+
+Case Study 8: Portfolio Risk and Performance Dashboard
+1. Problem Statement
+Develop a Python program to analyze a series of investment returns and calculate the average return, volatility and Sharpe ratio.
+2. Objectives
+- Store periodic investment returns.
+- Calculate the mean return.
+- Calculate standard deviation.
+- Estimate the Sharpe ratio.
+- Display portfolio performance metrics.
+3. Assumptions
+- Returns are represented as decimal values.
+- The risk-free rate is 2% in the example.
+- At least two return observations are supplied.
+- The return observations are treated as a sample for standard deviation.
+4. Algorithm
+1. Start.
+2. Read the return values.
+3. Calculate the mean return.
+4. Calculate the variance.
+5. Calculate standard deviation.
+6. Calculate the Sharpe ratio.
+7. Display the results.
+8. Stop.
+5. Flowchart
+Start → Read Returns → Calculate Mean → Calculate Standard Deviation → Calculate Sharpe Ratio → Display Results → Stop.
+6. Pseudocode
+START
+  Read returns
+  Calculate mean return
+  Calculate sample variance
+  Calculate standard deviation
+
+  IF standard deviation is not zero
+    Calculate Sharpe ratio
+  ELSE
+    Sharpe ratio = 0
+  END IF
+
+  Display metrics
+STOP
+
+
+7. Python Source Code
+import mathdef calculate_metrics(returns, rf=0.02):    n = len(returns)    if n < 2:        return "At least two returns are required."    avg_ret = sum(returns) / n    variance = sum(        (r - avg_ret) ** 2 for r in returns    ) / (n - 1)    std_dev = math.sqrt(variance)    sharpe = (        (avg_ret - rf) / std_dev        if std_dev != 0 else 0    )    return {        "mean": round(avg_ret, 4),        "volatility": round(std_dev, 4),        "sharpe": round(sharpe, 2)    }monthly_returns = [0.03, 0.02, -0.01, 0.04, 0.015]print("Portfolio Metrics:", calculate_metrics(monthly_returns))
+
+
+
+8. Test Cases
+Monthly returns	Expected mean
+0.03, 0.02, -0.01, 0.04, 0.015	0.019
+0.02, 0.02	0.020
+Empty list	Not enough data
+
+9. Sample Output
+Portfolio Metrics: {
+    'mean': 0.019,
+    'volatility': 0.0188,
+    'sharpe': -0.05
+}
+
+
+10. Conclusion
+The program demonstrates mathematical calculations, lists, functions and the Python math module for basic investment-return analysis. The result is an educational example, not investment advice.
+
+Case Study 9: Object-Oriented Library Management System
+1. Problem Statement
+Develop a Python program to manage books in a library and prevent a book that has already been issued from being issued again.
+2. Objectives
+- Represent books using classes and objects.
+- Store book titles and authors.
+- Track whether a book has been issued.
+- Prevent duplicate issuing.
+- Display the result of each issue attempt.
+3. Assumptions
+- Each book is represented by an object.
+- A new book is initially available.
+- A book can be issued only once until it is returned.
+- The example demonstrates issuing; it does not implement a complete return system.
+4. Algorithm
+1. Start.
+2. Create a Book class.
+3. Initialize the book details and issue status.
+4. Create a book object.
+5. Check whether the book has already been issued.
+6. Update the status if available.
+7. Display the issue result.
+8. Stop.
+5. Flowchart
+Start → Create Book → Check Availability → Issue Book if Available → Display Result → Stop.
+6. Pseudocode
+START
+  Create Book object
+  Set issued status to False
+
+  FUNCTION issue
+    IF book is not issued
+      Set issued status to True
+      RETURN True
+    ELSE
+      RETURN False
+    END IF
+  END FUNCTION
+
+  Display first and second issue results
+STOP
+
+
+7. Python Source Code
+class Book:    def __init__(self, title, author):        self.title = title        self.author = author        self.is_issued = False    def issue(self):        if not self.is_issued:            self.is_issued = True            return True        return Falsebook1 = Book(    "Python Core Programming",    "Guido van Rossum")status1 = book1.issue()status2 = book1.issue()print(    f"First Issue: {status1}, "    f"Second Issue Attempt: {status2}")
+
+
+
+8. Test Cases
+Operation	Expected result
+Issue an available book	True
+Issue the same book again	False
+Check the issue status	Issued
+
+9. Sample Output
+First Issue: True, Second Issue Attempt: False
+
+
+10. Conclusion
+The program demonstrates classes, objects, constructors, instance variables and methods to manage the issue status of books.
+
+Case Study 10: Multi-Currency Expense Engine
+1. Problem Statement
+Develop a Python program to convert expenses recorded in different currencies into Indian rupees and calculate the total expenditure.
+2. Objectives
+- Store expenses in different currencies.
+- Maintain an exchange-rate dictionary.
+- Convert expenses into INR.
+- Calculate the total expenditure.
+- Display the final amount.
+3. Assumptions
+- Exchange rates remain fixed during program execution.
+- The example uses USD at ₹83, EUR at ₹90 and INR at ₹1.
+- Only currencies listed in the exchange-rate dictionary are supported.
+- These are illustrative rates, not live market rates.
+4. Algorithm
+1. Start.
+2. Initialize the exchange-rate dictionary.
+3. Store expenses and currency codes.
+4. Read each expense.
+5. Multiply the amount by the relevant exchange rate.
+6. Add the converted amount to the total.
+7. Display the total in INR.
+8. Stop.
+5. Flowchart
+Start → Read Expenses → Identify Currency → Retrieve Exchange Rate → Convert to INR → Calculate Total → Display Result → Stop.
+6. Pseudocode
+START
+  Initialize exchange rates
+  total_inr = 0
+
+  FOR each expense
+    Read amount and currency
+    IF currency exists in exchange rates
+      Convert amount into INR
+      Add converted amount to total
+    END IF
+  END FOR
+
+  Display total expenditure in INR
+STOP
+
+
+7. Python Source Code
+RATES = {    "USD": 83.0,    "EUR": 90.0,    "INR": 1.0}def convert_expenses(expenses):    total_inr = 0.0    for item, (amount, currency) in expenses.items():        if currency in RATES:            total_inr += amount * RATES[currency]    return round(total_inr, 2)my_expenses = {    "Cloud Server": (50, "USD"),    "Software License": (100, "EUR"),    "Office Supplies": (2500, "INR")}grand_total = convert_expenses(my_expenses)print(f"Total Expense in INR: ₹{grand_total}")
+
+
+
+8. Test Cases
+Expense	Conversion
+50 USD	₹4,150
+100 EUR	₹9,000
+2,500 INR	₹2,500
+Total	₹15,650
+
+9. Sample Output
+Total Expense in INR: ₹15650.0
+
+
+10. Conclusion
+The program demonstrates dictionaries, tuples, loops, functions and arithmetic operations to convert multiple expenses into a common currency.
+
+Overall Conclusion
+The ten Python case studies demonstrate how fundamental programming concepts can be applied to practical problems. The programs use variables, data types, operators, conditional statements, loops, strings, lists, dictionaries, tuples and functions, along with selected modules and object-oriented programming.
